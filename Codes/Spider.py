@@ -48,9 +48,14 @@ def savetoCSV():
     #start_time = '2015-05-12 02:40:34'
     start_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 获取当前时间，从当前时间向前获取
     #设置爬取评论数据的截至时间
-    end_time = '2015-05-01 00:00:00'
+    end_time = '2018-08-01 00:00:00'
     while start_time > end_time:
-        url = 'http://m.maoyan.com/mmdb/comments/movie/248170.json?_v_=yes&offset=0&startTime=' + start_time.replace(' ', '%20')
+        #雷神3 249894   
+        #复联3 248170
+        #复联2 78429
+        #海王  249342
+        #蚁人2 343208
+        url = 'http://m.maoyan.com/mmdb/comments/movie/343208.json?_v_=yes&offset=0&startTime=' + start_time.replace(' ', '%20')
         html = None
         '''
             问题：当请求过于频繁时，服务器会拒绝连接，实际上是服务器的反爬虫策略
@@ -73,14 +78,14 @@ def savetoCSV():
         
         
         for item in comments:
-            with open('\CSVData\AvengersInfinityWar.csv', 'a', encoding='utf-8') as f:
+            with open('AntManAndtheWasp.csv', 'a', encoding='utf-8') as f:
                 f.write(str(item['id']) + ',' + item['startTime'].strip('[\'').split(' ')[0] + ',' + str(item['score']) + ',' + item['cityName'] + ',' + str(item['content']) + '\n')
                 #f.write(str(item['id'])+','+item['nickName'] + ',' + item['cityName'] + ',' + item['content'] + ',' + str(item['score'])+ ',' + item['startTime'] + '\n')
         
 
 
 if __name__ == '__main__':
-    html = get_data('http://m.maoyan.com/mmdb/comments/movie/248170.json?_v_=yes&offset=0&startTime=2018-12-31%2022%3A25%3A03')
+    html = get_data('http://m.maoyan.com/mmdb/comments/movie/343208.json?_v_=yes&offset=0&startTime=2019-01-04%2022%3A25%3A03')
     comments = parse_data(html)
     print(comments)
     savetoCSV()
