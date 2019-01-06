@@ -11,4 +11,4 @@ def duplicateChecking(old,new):
 
 
 if __name__ == '__main__':
-    duplicateChecking(r'\CSVData\AvengersInfinityWar.csv', r'\CSVData\AvengersInfinityWar_new.csv')
+    duplicateChecking(r'AvengersInfinityWar.csv', r'AvengersInfinityWar_new.csv')

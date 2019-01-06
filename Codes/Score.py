@@ -4,7 +4,7 @@ from pyecharts import Pie
 
 # 获取评论中所有评分
 rates = []
-with open('\CSVData\AvengersInfinityWar_new.csv', mode='r', encoding='utf-8') as f:
+with open('AvengersInfinityWar_new.csv', mode='r', encoding='utf-8') as f:
     rows = f.readlines()
     for row in rows:
         rates.append(row.split(',')[2])
@@ -25,5 +25,5 @@ pie = Pie('评分星级比例', title_pos='center', width=1200)
 pie.add(12-28, attr, value, center=[50, 50], is_random=True,
         radius=[30, 75], rosetype='area',
         is_legend_show=False, is_label_show=True)
-pie.render('\Results\AvengersInfinityWar_new_评分.html')
+pie.render('AvengersInfinityWar_new_评分.html')
 

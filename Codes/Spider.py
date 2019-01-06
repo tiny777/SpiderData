@@ -23,8 +23,6 @@ def get_data(url):
         return response.read()
     return None
 
-
-
 # 处理数据
 def parse_data(html):
     data = json.loads(html)['cmts']  # 将str转换为json
@@ -76,7 +74,7 @@ def savetoCSV():
         start_time = datetime.strptime(start_time, '%Y-%m-%d %H:%M:%S') + timedelta(seconds=-1)  # 转换为datetime类型，减1秒，避免获取到重复数据
         start_time = datetime.strftime(start_time, '%Y-%m-%d %H:%M:%S')  # 转换为str
         
-        
+        #将数据写入csv文件中
         for item in comments:
             with open('AntManAndtheWasp.csv', 'a', encoding='utf-8') as f:
                 f.write(str(item['id']) + ',' + item['startTime'].strip('[\'').split(' ')[0] + ',' + str(item['score']) + ',' + item['cityName'] + ',' + str(item['content']) + '\n')

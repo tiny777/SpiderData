@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pyecharts import Geo
 
-f = open('\CSVData\AvengersInfinityWar_new.csv',encoding='UTF-8')
+f = open('AvengersInfinityWar_new.csv',encoding='UTF-8')
 data = pd.read_csv(f,sep=',',header=None,encoding='UTF-8',names=['id','startTime','score','cityName','content'])
 
 #分词
@@ -61,6 +61,6 @@ plt.imshow(wc)
 plt.axis('off')#不显示坐标轴
 plt.show()
 #保存结果到本地
-wc.to_file(r'\Results\AvengersInfinityWarWordCloud.jpg')
+wc.to_file(r'AvengersInfinityWarWordCloud.jpg')
 
 

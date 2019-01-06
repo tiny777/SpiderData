@@ -8,7 +8,7 @@ from snownlp import sentiment
 from snownlp.sentiment import Sentiment
 
 comment = []
-with open('\CSVData\AvengersInfinityWar_new.csv', mode='r', encoding='utf-8') as f:
+with open('AvengersInfinityWar_new.csv', mode='r', encoding='utf-8') as f:
     rows = f.readlines()
     for row in rows:
         if row not in comment:
